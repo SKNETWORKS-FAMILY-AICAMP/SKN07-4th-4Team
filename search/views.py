@@ -16,3 +16,8 @@ def search_page(request):
             'posts' : posts,
         }
     )
+
+def write_page(request):
+    return render(
+        request,  'write.html'
+    )

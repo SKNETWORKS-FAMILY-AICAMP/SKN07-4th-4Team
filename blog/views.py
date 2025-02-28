@@ -15,7 +15,7 @@ def index(request):
 
     return render(
         request,
-        'blog/index.html',
+        'blog/post_list.html',
         {
             'posts' : posts,
         }
