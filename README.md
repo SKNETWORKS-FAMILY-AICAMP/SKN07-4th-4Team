@@ -2,21 +2,15 @@
 
  ------------------------------------------------
 
-# 1. 팀 소개
-- 팀명: 
-    <table>
-    <tr>
-        <th>신동익</th>
-        <th>박민혁</th>
-        <th>나성호</th>
-    </tr>
-    <tr>
-        <th style="vertical-align: top;"></th>
-        <th style="vertical-align: top;"></th>
-        <th style="vertical-align: top;"></th>
-        <!-- <th>role 4.</th> -->
-    </tr>
-    </table>
+## 1. 팀 소개
+- **팀명**: [팀명 입력]
+
+| 이름    | 역할                                                   |
+|---------|--------------------------------------------------------|
+| 신동익  | Django Backend/Frontend, DB(MySQL), API                |
+| 박민혁  | Django Backend/Frontend, DB(MySQL), LLM 테스트, RAG 모델 |
+| 나성호  | LLM 테스트, RAG 모델, 요구사항 정의서, 화면 설계서, 시스템 구성도, App 테스트 |
+| 문택    | 프로젝트 참여, 회의 및 논의                     |
 
 ------------------------------------------------
  
