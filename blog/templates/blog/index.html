@@ -48,15 +48,16 @@
                         <div class="card-body d-flex align-items-center">
                             {% if p.head_image %}
                             <a href="#!">
-                                <img class="img-fluid rounded me-3" src="{{ p.head_image.url }}" alt="{{ p.title }} head_image" style="max-width: 200px; height: auto;"/>
+                                <img class="img-fluid rounded me-3" src="{{ p.head_image.url }}" alt="{{ p.title }} head_image" style="max-width: 100px; max-height: 100px;"/>
                             </a>
                             {% endif %}
                             
                             <div>
                                 <div class="small text-muted">{{ p.created_at }} 작성</div>
-                                <h2 class="card-title mb-1" style="font-size: 1.5rem;">{{ p.title }}</h2>
-                                <p class="card-text">LLM으로 요약할 예정</p>
-                                <a class="btn btn-primary" href="{{ p.go2page }}" style="background-color: transparent; border: 1px solid rgba(0, 123, 255, 0.5); color: rgba(0, 123, 255, 0.5);">더 알아보기</a>
+                                <a href="{{ p.go2page }}">
+                                    <h2 class="card-title mb-1" style="font-size: 1.5rem;">{{ p.title }}</h2>
+                                </a>
+                                <p class="card-text">LLM으로 요약할 예정 ... AI로 요약한 내용 입니다.</p>
                             </div>
                         </div>
                     </div>

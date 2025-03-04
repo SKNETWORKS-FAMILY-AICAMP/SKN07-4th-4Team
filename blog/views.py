@@ -1,7 +1,10 @@
 import os
 
+from django.views.generic import ListView, DetailView
 from django.shortcuts import render
-from .models import Post
+
+from .models import Post, Comment
+from .form import CommentForm
 
 # Create your views here.
 def index(request):
@@ -34,3 +37,14 @@ def post_page(request, pk):
             'file_name' : file_name
         }
     )
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = 'blog/post_page.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(PostDetail, self).get_context_data()
+        # context['categories'] = Category.objects.all()
+        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        context['comment_form'] = CommentForm
+        return context
