@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-ai$q(s5yu4)l2n9(4lzj5&3tnqwca$!x9jof3z2#h()+@qj^dv
 DEBUG = True
 
 ALLOWED_HOSTS = [
-
+    '192.168.0.37',
+    'ii578293.iptime.org'
 ]
 
 
@@ -83,6 +84,7 @@ if os.path.exists(os.path.join(BASE_DIR, '.env')):
     environ.Env.read_env(
         env_file=os.path.join(BASE_DIR, '.env')
     )
+    print(f"[DB] {env('DB_NAME')}")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -94,6 +96,7 @@ if os.path.exists(os.path.join(BASE_DIR, '.env')):
         }
     }
 else:
+    print('[DB] sqlite3')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

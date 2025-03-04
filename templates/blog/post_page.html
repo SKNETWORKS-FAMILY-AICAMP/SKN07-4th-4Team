@@ -1,153 +1,129 @@
-<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 
-<html lang="ko">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>{{post.title}} - Blog</title>
-        
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
-        <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}" media="screen">
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#!">회사 로고</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/blog">목록</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page content-->
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- Post content-->
-                    <article>
-                        <!-- Post header-->
-                        <header class="mb-4">
-                            <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">{{post.title}}</h1>
-                            <!-- Download files -->
-                            {% if post.file_upload %}
-                            <a href="{{ post.file_upload.url }}" style="text-decoration: none; font-size: 0.875rem;" download>{{ file_name }}</a>
-                            {% endif %}
-                            <!-- Preview image figure-->
-                            {% if post.head_image %}
-                            <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.head_image.url}}" alt="{{post.title}} head_image" /></figure>
-                            {% else %}
-                            {% endif %}
-                            <p>{{post.content}}</p>
-                            <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">작성일: {{post.created_at}}, 작성자: </div>
-                            <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
-                        </header>
-                    </article>
+{% block head_title %}
+    {{ post.title }} - Blog
+{% endblock %}
 
-                    <!-- Comments section-->
-                    <section class="mb-5">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <!-- Comment form-->
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder=""></textarea></form>
-                                <!-- Comment with nested comments-->
-                                <div class="d-flex mb-4">
-                                    <!-- Parent comment-->
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                        <!-- Child comment 1-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                                            </div>
-                                        </div>
-                                        <!-- Child comment 2-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                When you put money directly to a problem, it makes a good headline.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single comment-->
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                                    </div>
-                                </div>
-                            </div>
+{% block main_area %}
+<body>
+    <div>
+        <!-- Post content-->
+        <article>
+            <!-- Post header-->
+            <header class="mb-4">
+                <!-- Post title-->
+                <h1 class="fw-bolder mb-1">{{post.title}}</h1>
+                <!-- Download files -->
+                {% if post.file_upload %}
+                <a href="{{ post.file_upload.url }}" style="text-decoration: none; font-size: 0.875rem;" download>{{ file_name }}</a>
+                {% endif %}
+                <!-- Preview image figure-->
+                {% if post.head_image %}
+                <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.head_image.url}}" alt="{{post.title}} head_image" /></figure>
+                {% else %}
+                {% endif %}
+                <p>{{post.content}}</p>
+                <!-- Post meta content-->
+                <div class="text-muted fst-italic mb-2">작성일: {{post.created_at}}, 작성자: </div>
+                <!-- Post categories-->
+                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+            </header>
+        </article>
+
+        <!-- Leave Comments section-->
+        <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                    <form id="comment-form" method="POST" action="{{ post.get_absolute_url }}new_comment/">
+                        {% csrf_token %}
+                        <div class="form-group d-flex align-items-center">
+                            <!-- 텍스트 입력란 -->
+                            <textarea class="form-control" rows="3" name="comment" placeholder="Your comment here..." style="flex: 1; height: calc(2.25rem + 2px);"></textarea>
+                            <!-- 제출 버튼 -->
+                            <button type="submit" class="btn btn-primary ml-3" style="height: calc(2.25rem + 2px); border: none; background-color: transparent; color: #007bff; box-shadow: none;">댓글</button>
                         </div>
-                    </section>
-                </div>
-                <!-- Side widgets-->
-                <div class="col-lg-4">
-                    <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Search</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
-                        </div>
+                    </form>
+                {% else %}
+                    <div class="d-flex align-items-center">
+                        <span>Log in and leave a comment</span>
+                        <a role="button" class="btn btn-outline-dark btn-sm ml-2" href="#" data-toggle="modal" data-target="#loginModal">Log In</a>
                     </div>
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
-                </div>
+                {% endif %}
             </div>
         </div>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{% static 'blog/js/scripts.js' %}"></script>
-    </body>
-</html>
+
+        <!-- List Comments section -->
+        {% if post.comment_set.exists %}
+            {% for comment in post.comment_set.iterator %}
+                <!-- Single Comment -->
+                <div class="media mb-4" id="comment-{{ comment.pk }}">
+                    <!-- 사용자 아이콘 (왼쪽) -->
+                    <div class="comment-avatar">
+                        <img class="rounded-circle" src="{% static 'blog/assets/user.jpg' %}" alt="" width="40px">
+                    </div>
+                
+                    <!-- 댓글 작성 영역 (오른쪽) -->
+                    <div class="media-body">
+                        <div class="d-flex justify-content-between">
+                            <!-- 사용자 이름과 작성일 -->
+                            <div>
+                                <h6 class="mt-0">
+                                    {{ comment.author.username }} 
+                                    <small class="text-muted">
+                                        {% if comment.modified_at is none %}
+                                            {{ comment.created_at|date:"Y년 m월 d일 H:i A" }}
+                                        {% else %}
+                                            {{ comment.modified_at|date:"Y년 m월 d일 H:i A" }} 수정됨
+                                        {% endif %}
+                                    </small>
+                                </h6>
+                            </div>
+                
+                            <!-- 수정/삭제 버튼 -->
+                            {% if user.is_authenticated and comment.author == user %}
+                                <div>
+                                    <a href="/blog/update_comment/{{ comment.pk }}/" class="btn btn-sm btn-info" style="height: calc(2.25rem + 2px); border: none; background-color: transparent; color: #007bff; box-shadow: none;">
+                                        <small>수정</small>
+                                    </a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteCommentModal-{{ comment.pk }}" class="btn btn-sm btn-danger" style="height: calc(2.25rem + 2px); border: none; background-color: transparent; color: #007bff; box-shadow: none;">
+                                        <small>삭제</small>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+                
+                        <!-- 댓글 내용 -->
+                        <p>{{ comment.content | linebreaks }}</p>
+                    </div>
+                </div>
+                
+                <!-- 삭제 확인 Modal -->
+                <div class="modal fade" id="deleteCommentModal-{{ comment.pk }}" tabindex="-1" role="dialog" aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">정말 삭제하시겠습니까?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <del>{{ comment | linebreaks }}</del>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="height: calc(2.25rem + 2px); border: none; background-color: transparent; color: #007bff; box-shadow: none;">취소</button>
+                                <a role="button" class="btn btn-danger" href="/blog/delete_comment/{{ comment.pk }}/" style="height: calc(2.25rem + 2px); border: none; background-color: transparent; color: #007bff; box-shadow: none;">삭제</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+{% endblock %}
