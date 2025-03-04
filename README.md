@@ -48,10 +48,12 @@
 | **GPT-3.5 Turbo** | <img src="https://img.shields.io/badge/GPT--3.5--Turbo-412991?style=for-the-badge" /> |
 | **GPT-4** | <img src="https://img.shields.io/badge/GPT--4-412991?style=for-the-badge" /> |
 
-# 4. 요구사항 정의서
-![수행결과](./images/요구사항 정의서.png)
+## 4. 요구사항 정의서
+![요구사항 정의서](https://raw.githubusercontent.com/SKNETWORKS-FAMILY-AICAMP/SKN07-4th-4Team/main/images/요구사항정의서.png)
 
-# 5. 화면 설계서
+## 5. 화면 설계서
+![화면 설계서](https://raw.githubusercontent.com/SKNETWORKS-FAMILY-AICAMP/SKN07-4th-4Team/main/images/화면설계서.png)
+
 
 # 6. 수행결과(테스트/시연 페이지)
  
