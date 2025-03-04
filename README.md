@@ -95,7 +95,11 @@ AI가 자동으로 핵심 내용을 요약해주는 서비스
 ------------------------------------------------
 
 ## 6. 수행결과(테스트/시연 페이지)
-(사진 업로드 예정)
+![test(1)](https://github.com/user-attachments/assets/3ae605de-897e-4ab9-8986-c1a8473c01c3)
+![test(2)](https://github.com/user-attachments/assets/7308ed25-bc14-4642-b1e0-0fab3c005a7f)
+![test(3)](https://github.com/user-attachments/assets/55c7164a-fbc5-4c1f-864f-3ea2117bf311)
+![test(4)](https://github.com/user-attachments/assets/b1661ec5-1aa1-44d5-bb1c-884b24862d92)
+![test(5)](https://github.com/user-attachments/assets/b5ed760e-16cc-4833-9f72-5f3f8a295e3a)
 
 ------------------------------------------------
  
