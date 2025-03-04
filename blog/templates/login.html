@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>QnA Home</title>
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}" media="screen">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#!">회사 로고</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li> -->
+                        <li class="nav-item">
+                            {% if user.is_authenticated %}
+                                <button class="btn btn-primary" id="button-insert" onclick="write_page_go()" type="button">글 등록</button>
+                            {% endif %}
+                        </li>
+                        <li class="nav-item">
+                            {% if user.is_authenticated %}
+                                <a class="nav-link" href="{% url 'logout' %}">{{ user.username }}</a>
+                            {% else %}
+                                <button class="btn btn-primary" id="button-insert" onclick="login_page_go()" type="button">로그인</button>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <script type="text/javascript">
+            function write_page_go() {
+                location.href = '/search/write_page/'
+            }
+            function login_page_go() {
+                location.href = "{% url 'login' %}" // '/login/'
+            }
+        </script>
+
+        <div class="container">
+            <style>
+                form.user .form-control-user {
+                    font-size: .8rem;
+                    border-radius: 10rem;
+                    padding: 0.7rem 1rem;
+                }
+            
+                #inputPasswd {
+                    margin-top : 10px;
+                }
+            
+                .btn-user {
+                    font-size: .8rem;
+                    border-radius: 10rem;
+                    padding: .75rem 1rem;
+                    color: #fff;
+                    background-color: #4e73df;
+                    border-color: #4e73df;
+                    margin-top: 30px;
+                    width: 50%;
+                    margin-left: 25%;
+                }
+            </style>
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                                        </div>
+                                        <form class="user" method="post" action="{% url 'login' %}">
+                                            {% csrf_token %}
+                                            {% include 'form_errors.html' %}
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user"  name="username"
+                                                    id="inputId" aria-describedby="emailHelp" placeholder="Enter Email Address..."
+                                                    value="{{ form.username.value|default_if_none:'' }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user" name="password"
+                                                    id="inputPasswd" placeholder="Password"
+                                                    value="">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">로그인</button>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a class="small" href="{% url 'signup' %}">계정 생성</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'blog/js/scripts.js' %}"></script>
+    </body>
+</html>
