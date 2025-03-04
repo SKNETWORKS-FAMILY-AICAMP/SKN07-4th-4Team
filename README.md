@@ -78,8 +78,9 @@ AI가 자동으로 핵심 내용을 요약해주는 서비스
 
 ------------------------------------------------
 
-## 4. 요구사항 정의서
-![요구사항 정의서](https://raw.githubusercontent.com/SKNETWORKS-FAMILY-AICAMP/SKN07-4th-4Team/main/images/요구사항정의서.png)
+## 4. 요구사항 정의서  
+요구사항 정의서  
+![요구사항 정의서](https://raw.githubusercontent.com/SKNETWORKS-FAMILY-AICAMP/SKN07-4th-4Team/main/images/요구사항_정의서.png)
 
 ------------------------------------------------
 
