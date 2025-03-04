@@ -5,7 +5,7 @@
     <div class="col-lg-8">
         <!-- Featured blog post-->
 
-        {% for p in posts %}
+        <!-- {% for p in posts %}
             <div class="card mb-4">
                 <div class="card-body d-flex align-items-center">
                     {% if p.head_image %}
@@ -22,13 +22,40 @@
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        {% endfor %} --> 
+
+        {% if posts %}
+            {% for p in posts %}
+                <div class="card mb-4">
+                    <div class="card-body d-flex align-items-center">
+                        {% if p.head_image %}
+                        <a href="#!">
+                            <img class="img-fluid rounded me-3" src="{{ p.head_image.url }}" alt="{{ p.title }} head_image" style="max-width: 200px; height: auto;"/>
+                        </a>
+                        {% endif %}
+                        
+                        <div>
+                            <div class="small text-muted">{{ p.created_at }} 작성</div>
+                            <h2 class="card-title mb-1" style="font-size: 1.5rem;">{{ p.title }}</h2>
+                            <p class="card-text">{{ p.content }}</p>
+                            <a class="btn btn-primary" href="{{ p.go2page }}" style="background-color: transparent; border: 1px solid rgba(0, 123, 255, 0.5); color: rgba(0, 123, 255, 0.5);">더 알아보기</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="card mb-4">
+                <div class="card-body d-flex align-items-center">
+                    글을 작성해주세요.
+                </div>
+            </div>
+        {% endif %}
 
         
         <!-- Nested row for non-featured blog posts-->
         
         <!-- Pagination-->
-        <nav aria-label="Pagination">
+        <!-- <nav aria-label="Pagination">
             <hr class="my-0" />
             <ul class="pagination justify-content-center my-4">
                 <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
@@ -38,6 +65,46 @@
                 <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
                 <li class="page-item"><a class="page-link" href="#!">15</a></li>
                 <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+            </ul>
+        </nav> -->
+
+        <nav aria-label="Pagination">
+            <hr class="my-0" />
+            <ul class="pagination justify-content-center my-4">
+                <!-- 이전페이지 -->
+                {% if posts.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.previous_page_number }}">이전</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                    </li>
+                {% endif %}
+                <!-- 페이지리스트 -->
+                {% for page_number in posts.paginator.page_range %}
+                    {% if page_number >= posts.number|add:-5 and page_number <= posts.number|add:5 %}
+                        {% if page_number == posts.number %}
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <!-- 다음페이지 -->
+                {% if posts.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" data-page="{{ page_number }}" href="#">다음</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
     </div>

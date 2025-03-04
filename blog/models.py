@@ -25,7 +25,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def go2page(self):
         return f'/blog/{self.pk}/'

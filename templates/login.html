@@ -1,0 +1,66 @@
+{% extends "blog/index.html" %}
+{% block content %}
+<style>
+    form.user .form-control-user {
+        font-size: .8rem;
+        border-radius: 10rem;
+        padding: 0.7rem 1rem;
+    }
+
+    #inputPasswd {
+        margin-top : 10px;
+    }
+
+    .btn-user {
+        font-size: .8rem;
+        border-radius: 10rem;
+        padding: .75rem 1rem;
+        color: #fff;
+        background-color: #4e73df;
+        border-color: #4e73df;
+        margin-top: 30px;
+        width: 50%;
+        margin-left: 25%;
+    }
+</style>
+<div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                            </div>
+                            <form class="user" method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                {% include 'form_errors.html' %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user"  name="username"
+                                        id="inputId" aria-describedby="emailHelp" placeholder="Enter Email Address..."
+                                        value="{{ form.username.value|default_if_none:'' }}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" name="password"
+                                        id="inputPasswd" placeholder="Password"
+                                        value="">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">로그인</button>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="{% url 'signup' %}">계정 생성</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
