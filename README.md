@@ -36,19 +36,17 @@
 ---
  
 # 1. 기술 스택
-<div>
-<img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
-<img src="https://a11ybadges.com/badge?logo=openai" alt="OpenAI" width="163" height="28"/>
-<img src="https://img.shields.io/badge/langchain-F7DF1E?style=for-the-badge&logo=langchain&logoColor=black"> <img src="https://github.com/pladata-encore/SKN07-3rd-2Team/blob/main/image/chromadb.jpg" alt="chromadb" width="90" height="40">
-<div>
-</div>
-<img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
-<img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
-<img src="https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white">
-</div>
-
- - ![OpenAI GPT-3.5 turbo](https://img.shields.io/badge/OpenAI-GPT--3.5--turbo-blueviolet?logo=openai&logoColor=white)
- - ![OpenAI GPT-4](https://img.shields.io/badge/OpenAI-GPT--4-blueviolet?logo=openai&logoColor=white)
+| 기술 스택 | 로고 |
+|-----------|------|
+| **Python** | <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" /> |
+| **OpenAI** | <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" /> |
+| **LangChain** | <img src="https://img.shields.io/badge/LangChain-FF9900?style=for-the-badge" /> |
+| **ChromaDB** | <img src="https://img.shields.io/badge/ChromaDB-009688?style=for-the-badge" /> |
+| **GitHub** | <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /> |
+| **VSCode** | <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" /> |
+| **Jupyter** | <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" /> |
+| **GPT-3.5 Turbo** | <img src="https://img.shields.io/badge/GPT--3.5--Turbo-412991?style=for-the-badge" /> |
+| **GPT-4** | <img src="https://img.shields.io/badge/GPT--4-412991?style=for-the-badge" /> |
 
 ## 주요 프로시저
 
