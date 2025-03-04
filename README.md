@@ -35,7 +35,7 @@
 
 ---
  
-# 1. 기술 스택
+# 3. 기술 스택
 | 기술 스택 | 로고 |
 |-----------|------|
 | **Python** | <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" /> |
@@ -48,9 +48,12 @@
 | **GPT-3.5 Turbo** | <img src="https://img.shields.io/badge/GPT--3.5--Turbo-412991?style=for-the-badge" /> |
 | **GPT-4** | <img src="https://img.shields.io/badge/GPT--4-412991?style=for-the-badge" /> |
 
-## 주요 프로시저
+# 4. 요구사항 정의서
+https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN07-4th-4Team/blob/main/images/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98%EC%84%9C.png
 
-## 수행결과(테스트/시연 페이지)
+# 5. 화면 설계서
+
+# 6. 수행결과(테스트/시연 페이지)
  
 ## 한 줄 회고
 - **김민혁** :
