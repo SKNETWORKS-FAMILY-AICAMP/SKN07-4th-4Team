@@ -49,7 +49,7 @@
 | **GPT-4** | <img src="https://img.shields.io/badge/GPT--4-412991?style=for-the-badge" /> |
 
 # 4. 요구사항 정의서
-https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN07-4th-4Team/blob/main/images/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98%EC%84%9C.png
+![수행결과](./images/요구사항 정의서.png)
 
 # 5. 화면 설계서
 
