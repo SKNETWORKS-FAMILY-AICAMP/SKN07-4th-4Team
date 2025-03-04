@@ -1,0 +1,22 @@
+/* 전체 댓글 레이아웃 */
+.media {
+    display: flex;
+    align-items: flex-start; /* 수평 정렬 */
+    margin-bottom: 1rem;
+}
+
+/* 사용자 아이콘 왼쪽에 배치 */
+.comment-avatar {
+    margin-right: 1rem;
+}
+
+/* 댓글 작성 영역 (오른쪽) */
+.media-body {
+    flex: 1;
+}
+
+/* 버튼들 가운데 정렬 */
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+}
