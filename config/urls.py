@@ -19,11 +19,22 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+
+from search.views import search_page, signup_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
+# <<<<<<< search
+    path('', search_page, name="main"),
+    path('search/', include('search.urls') , name="search"),
+    path("login/", auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path("logout/", auth_views.LogoutView.as_view(), name='logout'),
+    path('signup/', signup_page, name='signup')
+# =======
     # path('', include('page.urls'))
+# >>>>>>> main
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

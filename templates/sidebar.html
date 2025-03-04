@@ -4,7 +4,7 @@
         <div class="card-header">Search</div>
         <div class="card-body">
             <div class="input-group">
-                <input id="search_input" class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                <input id="search_input" class="form-control" type="text"  value="{{query}}" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
                 <button class="btn btn-primary" id="button-search" onclick="search_click()" type="button">Go!</button>
             </div>
         </div>
@@ -40,6 +40,10 @@
 <script type="text/javascript">
     function search_click() {
         query = document.getElementById('search_input').value;
-        location.href='/blog/search?query=' + query
+        /* if (query == '') {
+            alert('검색어를 입력해주세요!');
+            return;
+        }*/ 
+        location.href='{% url "search:search" %}?query=' + query
     } 
 </script>

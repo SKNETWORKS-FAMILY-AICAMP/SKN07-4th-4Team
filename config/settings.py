@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import chromadb
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(BASE_DIR)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -25,8 +26,12 @@ SECRET_KEY = 'django-insecure-ai$q(s5yu4)l2n9(4lzj5&3tnqwca$!x9jof3z2#h()+@qj^dv
 DEBUG = True
 
 ALLOWED_HOSTS = [
+# <<<<<<< search
+    
+# =======
     '192.168.0.37',
     'ii578293.iptime.org'
+# >>>>>>> main
 ]
 
 
@@ -104,6 +109,9 @@ else:
         }
     }
 
+OPENAPI_KEY = env('OPENAPI_KEY')
+
+CHROMA_CLIENT = chromadb.HttpClient(host=env('CHROMA_HOST') ,port=env('CHROMA_PORT'))
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -151,5 +159,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

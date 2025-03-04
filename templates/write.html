@@ -2,10 +2,56 @@
 {% block content %}
 <div  class="row">
     <div class="col-lg-8">
-test
+        <form action="{% url 'search:write_post' %}" method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include "form_errors.html" %}
+            <input type="text" name="bdTitle" class="form-control mt-4 mb-2"
+                placeholder="제목을 입력해주세요." required
+            >
+            <div class="form-group">
+                <textarea class="form-control" rows="10"  id="summary_content"
+                    placeholder="PDF 및 TXT 파일을 올려주세요." required disabled
+                ></textarea>
+            </div>
+            <div style="float: right; margin-top:10px;">
+                <input type="file" name="bdFile" id="fileInput" accept=".txt, .pdf"   required >
+                <button type="submit" class="btn btn-secondary mb-3">제출하기</button>
+            </div>
+            <input type="hidden" id="hiddenContent" name="bdContent" value="">
+        </form>        
     </div>
     <!-- Side widgets-->
     {% include "sidebar.html" %}
-
 </div>
+<script type="text/javascript">
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return; // 파일이 선택되지 않은 경우 종료
+        
+        // FormData 객체 생성 및 파일 추가
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('csrfmiddlewaretoken', '{{csrf_token}}')
+        
+        // fetch API를 이용해 Django 서버로 파일 전송
+        fetch('{% url "search:write_file" %}', { 
+            method: 'POST',
+            headers: { "X-CSRFToken": "{{ csrf_token }}" },
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();  // 서버에서 JSON 응답을 보낸다고 가정
+        })
+        .then(data => {
+            document.getElementById('summary_content').value = data.summary_text
+            document.getElementById('hiddenContent').value = data.summary_text
+        })
+        .catch(error => {
+            console.error('업로드 실패:', error);
+        });
+    })
+</script>
 {% endblock %}
