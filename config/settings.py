@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import chromadb
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-ai$q(s5yu4)l2n9(4lzj5&3tnqwca$!x9jof3z2#h()+@qj^dv
 DEBUG = True
 
 ALLOWED_HOSTS = [
-
+    
 ]
 
 
@@ -102,6 +103,8 @@ else:
     }
 
 OPENAPI_KEY = env('OPENAPI_KEY')
+
+CHROMA_CLIENT = chromadb.HttpClient(host=env('CHROMA_HOST') ,port=env('CHROMA_PORT'))
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

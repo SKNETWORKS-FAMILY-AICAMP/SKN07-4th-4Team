@@ -26,7 +26,7 @@ from search.views import search_page, signup_page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('', search_page),
+    path('', search_page, name="main"),
     path('search/', include('search.urls') , name="search"),
     path("login/", auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path("logout/", auth_views.LogoutView.as_view(), name='logout'),
