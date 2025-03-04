@@ -81,13 +81,16 @@ AI가 자동으로 핵심 내용을 요약해주는 서비스
 ------------------------------------------------
 
 ## 4. 요구사항 정의서  
-(사진 업로드 예정)
 ![요구사항 정의서](https://github.com/user-attachments/assets/f389e93d-d887-43fa-bcef-8e024bbde132)
 
 ------------------------------------------------
 
 ## 5. 화면 설계서
-(사진 업로드 예정)
+![화면설계서(1)](https://github.com/user-attachments/assets/ea34bdf7-5d58-481b-9447-f5a7b1158aac)
+![화면설계서(2)](https://github.com/user-attachments/assets/35ad69d4-bc79-4960-a4df-a2f91d2cfb28)
+![화면설계서(3)](https://github.com/user-attachments/assets/92bcdfbe-e8df-4d02-8427-80cbd9c26eb9)
+![화면설계서(4)](https://github.com/user-attachments/assets/a5abfd87-8189-4ab4-bdf9-1ddd5fe5e713)
+![화면설계서(5)](https://github.com/user-attachments/assets/ea09c4a5-297b-45f1-878f-607a175d8c00)
 
 ------------------------------------------------
 
